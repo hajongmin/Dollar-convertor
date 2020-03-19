@@ -9,7 +9,7 @@ public class MenuManager {
 		System.out.println(" 2. Conversion to Won ");
 		System.out.println(" 3. Edit Dollar Exchang Rate ");
 		System.out.println(" 4. View the Rate of change  ");
-		System.out.println(" 5. Exit                     " );               
+		System.out.println(" 5. Exit the program " );               
 
 	}
 
