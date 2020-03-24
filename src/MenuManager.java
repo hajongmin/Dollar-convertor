@@ -22,7 +22,6 @@ public class MenuManager {
 			
 			if(num == 1) {
 				conversiontodolla();
-				
 			}
 			
 			else if(num == 2) {
@@ -62,423 +61,53 @@ public class MenuManager {
 	
 	public static void viewrate() {
 		Scanner input = new Scanner(System.in);
-		double[] RATE = new double[13];; 
+		double[] RATE = new double[24];//각 달의 환율을 입력하기위해선 12개의 배열만 있으면 되지만 뒤에 나오는 if문에서 RATE[13]과 RATE[23]이 필요하기 때문에 24개를 만들어 줍니다.
 		System.out.println("1월 ~ 12월 까지 매달 환율을 입력하세요.");
 		
-		for(int i = 1 ; i <= 12 ; i++) {                                   //반복문을 통해 각 배열에 입력값을 저장합니다.
+		for(int i = 1 ; i <= 12 ; i++) {     //for반복문을 통해 각 배열에 입력값을 저장합니다.
 			double rate = input.nextDouble();
-			System.out.println(i + "달 환율 : " + rate );
+			System.out.println(i + "월 환율 : " + rate );
 			RATE[i] = rate;
 		}	 
+		
+		 RATE[13] = RATE[1];  
+		 RATE[23] = RATE[11]; 
+		
 		System.out.println("지금은 몇월 입니까?(숫자만 입력하세요)");
-		int month = input.nextInt();         //
+		int month = input.nextInt();         
 		
-		if(month == 1) //현재 날짜가 1월인 경우
-		{
-			int y = 1;
-			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다\n.",month);
-				}
-				
-			if(RATE[y] > RATE[y+11]) {
-				double x = (RATE[y]-RATE[y+11]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y+11] > RATE[y]) {
-				double x = (RATE[y+11]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
 		
-		else if(month == 2) //현재 날짜가 2월인 경우
-		{
-			
-			int y = 2;
-			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다.\n",month);
-				}
-				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
 		
-		else if(month == 3) //현재 날짜가 3월인 경우
-		{
-			int y = 3;
+		if(RATE[month] > RATE[month+1]) {
+			double x = (RATE[month]-RATE[month+1]) / RATE[month] ;
+			System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",month,month,x);
+			}
 			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
+		else if(RATE[month] < RATE[month+1]) {
+			double x = (RATE[month+1]-RATE[month]) / RATE[month] ;
+			System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",month,month,x);
+			}
 			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다.\n",month);
-				}
+		else {
+			System.out.printf("%d월 환율은 작년과 동일합니다\n.",month);
+			}
 				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
+		if(RATE[month] > RATE[month+11]) {
+			double x = (RATE[month]-RATE[month+11]) / RATE[month] ;
+			System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",month,x);
+			}
 				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
+		else if(RATE[month+11] > RATE[month]) {
+			double x = (RATE[month+11]-RATE[month]) / RATE[month] ;
+			System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",month,x);
+			}
 				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
+		else  {
+			System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
+			}
 		
-		else if(month == 4) //현재 날짜가 4월인 경우
-		{
-			int y = 4 ;
-			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다.\n",month);
-				}
-				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
 		
-		else if(month == 5) //현재 날짜가 5월인 경우
-		{
-			
-			int y = 5;
-			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다.\n",month);
-				}
-				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
-		
-		else if(month == 6) //현재 날짜가 6월인 경우
-		{
-			int y = 6;
-			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다.\n",month);
-				}
-				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
-		
-		else if(month == 7) //현재 날짜가 7월인 경우
-		{
-			
-			int y = 7;
-			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다.\n", month);
-				}
-				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
-		
-		else if(month == 8) //현재 날짜가 8월인 경우
-		{
-			
-			int y = 8;
-			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다.\n",month);
-				}
-				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
-		
-		else if(month == 9) //현재 날짜가 9월인 경우
-		{
-			
-			int y = 9;
-			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다.\n",month);
-				}
-				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
-		
-		else if(month == 10) //현재 날짜가 10월인 경우
-		{
-			
-			int y = 10;
-			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다.\n",month);
-				}
-				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
-		
-		else if(month == 11) //현재 날짜가 11월인 경우
-		{
-			
-			int y = 11;
-			
-			if(RATE[y] > RATE[y+1]) {
-				double x = (RATE[y]-RATE[y+1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y+1]) {
-				double x = (RATE[y+1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년과 동일합니다.\n",month);
-				}
-				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달 환율과 동일합니다.\n",month);
-				}
-		}
-		
-		else //현재 날짜가 12월인 경우
-		{
-			int y = 12;
-			if(RATE[y] > RATE[y-11]) {
-				double x = (RATE[y]-RATE[y-11]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,y,x);
-				}
-			
-			else if(RATE[y] < RATE[y-11]) {
-				double x = (RATE[y-11]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 작년%d월에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,y,x);
-				}
-			
-			else {
-				System.out.printf("%d월 환율은 작년 과 동일합니다.\n",month);
-				}
-				
-			if(RATE[y] > RATE[y-1]) {
-				double x = (RATE[y]-RATE[y-1]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 상승했습니다.\n",y,x);
-					}
-				
-			else if(RATE[y-1] > RATE[y]) {
-				double x = (RATE[y-1]-RATE[y]) / RATE[y] ;
-				System.out.printf("%d월 환율은 저번달에 비해 %.5f퍼센트 만큼 하락했습니다.\n",y,x);
-				}
-				
-			else  {
-				System.out.printf("%d월 환율은 저번달과 동일합니다.\n",month);
-				}
-		}
 	}
 		
 		
 }
-	
-	
-	
-
