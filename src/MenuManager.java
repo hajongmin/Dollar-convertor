@@ -46,7 +46,7 @@ public class MenuManager {
 		double dollarrate = input.nextDouble();
 		System.out.print("How much won do you like to exchange?");
 		int won = input.nextInt();	
-		double dollar = won / dollarrate;
+		double dollar = won / dollarrate;   //원화 액수를 달러환율로 나눈 값
 		System.out.printf("환전하실 금액 %d원은 %.2f달러입니다.\n", won, dollar);
 	}
 	
@@ -56,7 +56,7 @@ public class MenuManager {
 		double dollarrate = input.nextDouble();
 		System.out.print("How much dollar do you like to exchange?");
 		int dollar = input.nextInt();
-		double won = dollar *  dollarrate;
+		double won = dollar *  dollarrate;  //달러액수를 달러환율과 곱한 값
 		System.out.printf("환전하실 금액 %d달러는 %.2f원입니다.\n", dollar, won);
 	}
 	
@@ -65,15 +65,15 @@ public class MenuManager {
 		double[] RATE = new double[13];; 
 		System.out.println("1월 ~ 12월 까지 매달 환율을 입력하세요.");
 		
-		for(int i = 1 ; i <= 12 ; i++) {
+		for(int i = 1 ; i <= 12 ; i++) {                                   //반복문을 통해 각 배열에 입력값을 저장합니다.
 			double rate = input.nextDouble();
 			System.out.println(i + "달 환율 : " + rate );
 			RATE[i] = rate;
-		}	
+		}	 
 		System.out.println("지금은 몇월 입니까?(숫자만 입력하세요)");
-		int month = input.nextInt();
+		int month = input.nextInt();         //
 		
-		if(month == 1) 
+		if(month == 1) //현재 날짜가 1월인 경우
 		{
 			int y = 1;
 			
@@ -106,7 +106,7 @@ public class MenuManager {
 				}
 		}
 		
-		else if(month == 2) 
+		else if(month == 2) //현재 날짜가 2월인 경우
 		{
 			
 			int y = 2;
@@ -140,7 +140,7 @@ public class MenuManager {
 				}
 		}
 		
-		else if(month == 3) 
+		else if(month == 3) //현재 날짜가 3월인 경우
 		{
 			int y = 3;
 			
@@ -173,7 +173,7 @@ public class MenuManager {
 				}
 		}
 		
-		else if(month == 4) 
+		else if(month == 4) //현재 날짜가 4월인 경우
 		{
 			int y = 4 ;
 			
@@ -206,7 +206,7 @@ public class MenuManager {
 				}
 		}
 		
-		else if(month == 5) 
+		else if(month == 5) //현재 날짜가 5월인 경우
 		{
 			
 			int y = 5;
@@ -240,7 +240,7 @@ public class MenuManager {
 				}
 		}
 		
-		else if(month == 6) 
+		else if(month == 6) //현재 날짜가 6월인 경우
 		{
 			int y = 6;
 			
@@ -273,7 +273,7 @@ public class MenuManager {
 				}
 		}
 		
-		else if(month == 7) 
+		else if(month == 7) //현재 날짜가 7월인 경우
 		{
 			
 			int y = 7;
@@ -307,7 +307,7 @@ public class MenuManager {
 				}
 		}
 		
-		else if(month == 8) 
+		else if(month == 8) //현재 날짜가 8월인 경우
 		{
 			
 			int y = 8;
@@ -341,7 +341,7 @@ public class MenuManager {
 				}
 		}
 		
-		else if(month == 9) 
+		else if(month == 9) //현재 날짜가 9월인 경우
 		{
 			
 			int y = 9;
@@ -375,7 +375,7 @@ public class MenuManager {
 				}
 		}
 		
-		else if(month == 10) 
+		else if(month == 10) //현재 날짜가 10월인 경우
 		{
 			
 			int y = 10;
@@ -409,7 +409,7 @@ public class MenuManager {
 				}
 		}
 		
-		else if(month == 11) 
+		else if(month == 11) //현재 날짜가 11월인 경우
 		{
 			
 			int y = 11;
@@ -443,7 +443,7 @@ public class MenuManager {
 				}
 		}
 		
-		else 
+		else //현재 날짜가 12월인 경우
 		{
 			int y = 12;
 			if(RATE[y] > RATE[y-11]) {
