@@ -1,2 +1,2 @@
-# dollar-conversion-program
-나만의 XManagementSystem
+# Part-time-worker-Management-System
+ XManagementSystem
