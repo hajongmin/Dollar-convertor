@@ -50,31 +50,39 @@ public class menuManager {
 	}
 	
 	public static void addstaff() {
+		System.out.println("***Add the staff*** ");
 		Scanner input = new Scanner(System.in);
 		System.out.print("Name : ");
 		String name = input.nextLine();
+		System.out.print("age : ");
+		int age = input.nextInt();
 		System.out.print("Phone number : ");
-		String ph = input.nextLine();
+		int ph = input.nextInt();
 		System.out.print("working hour : ");
-		int time = input.nextInt();	
+		int time = input.nextInt();
+		
+		
 	}
 	
 	public static void deletestaff() {
+		System.out.println("***Delete the staff*** : ");
 		Scanner input = new Scanner(System.in);
-		System.out.println("Name : ");
+		System.out.print("Name : ");
 		String name = input.nextLine();
 	}
 	
 	
 	public static void editstaff() {
+		System.out.println("***Edit the staff*** : ");
 		Scanner input = new Scanner(System.in);
-		System.out.println("Name : ");
+		System.out.print("Name : ");
 		String name = input.nextLine();
 		
 		
 	}
 	
 	public static void viewstaff() {
+		System.out.println("***View the staff*** : ");
 		Scanner input = new Scanner(System.in);
 		System.out.print("Name : ");
 		String name = input.nextLine();
