@@ -9,7 +9,7 @@ public class menuManager {
 		int num = 4;
 		while (num != 5) {
 
-			System.out.println(" -- part-timeworker Manegement System  -- ");
+			System.out.println(" -- Staff Manegement System  -- ");
 			System.out.println("   What do you want to do? ");
 			System.out.println(" 1. Add Staff ");
 			System.out.println(" 2. Delete Staff ");

@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Staff.NonRegularworker;
+import Staff.Staff;
+
 public class StaffManager {
 	ArrayList<Staff> staffs = new ArrayList<Staff>();
 	Scanner input;
@@ -10,17 +13,40 @@ public class StaffManager {
 	}
 
 	public void addstaff() {
-		Staff staff = new Staff();
-		System.out.println("***Add the staff*** ");
-		System.out.println("Name : ");
-		staff.name = input.next();
-		System.out.println("age : ");
-		staff.age = input.nextInt();
-		System.out.println("Phone number : ");
-		staff.phonenumber = input.nextInt();
-		System.out.println("working hour : ");
-		staff.workhour = input.nextInt();
-		staffs.add(staff);
+		int kind = 0;
+		Staff staff; 
+		while (kind !=1 && kind !=2)
+		{
+			System.out.println("1 for Regularworker");
+			System.out.println("2 for NonRegularworker");
+			System.out.println("Select num for Staff Kind");
+			kind = input.nextInt();
+			if (kind == 1)
+			{
+				staff = new Staff();
+				staff.getUserInput(input);
+				staffs.add(staff);
+				break;
+			}
+		
+			else if (kind == 2) 
+			{
+				staff = new NonRegularworker();
+				staff.getUserInput(input);
+				staffs.add(staff);
+				break;
+			}
+		
+			else 
+			{
+				System.out.println("Select num for Staff Kind 1 or 2");
+			}
+		}
+		
+		
+		
+		
+		
 
 	}
 
@@ -31,7 +57,7 @@ public class StaffManager {
 		int index = -1; // 배열에서 인덱스를 못찾았다.
 
 		for (int i = 0; i < staffs.size(); i++) {
-			if (staffs.get(i).name.equals(staffname)) {
+			if (staffs.get(i).getName().equals(staffname)) {
 				index = i;
 				break;
 			}
@@ -55,7 +81,7 @@ public class StaffManager {
 		String staffname = input.next();
 		for (int i = 0; i < staffs.size(); i++) {
 			Staff staff = staffs.get(i);
-			if (staff.name.equals(staffname)) {
+			if (staff.getName().equals(staffname)) {
 				int num = 4;
 				while (num != 5) {
 
@@ -72,26 +98,26 @@ public class StaffManager {
 
 					if (num == 1) {
 						System.out.println("Name : ");
-						staff.name = input.next();
-
+						String name = input.next();
+						staff.setName(name);
 					}
 
 					else if (num == 2) {
 						System.out.println("age : ");
-						staff.age = input.nextInt();
-
+						int age = input.nextInt();
+						staff.setAge(age);
 					}
 
 					else if (num == 3) {
 						System.out.println("Phone number : ");
-						staff.phonenumber = input.nextInt();
-
+						int phonenumber = input.nextInt();
+						staff.setPhonenumber(phonenumber);
 					}
 
 					else if (num == 4) {
 						System.out.println("working hour : ");
-						staff.workhour = input.nextInt();
-
+						int workhour = input.nextInt();
+						staff.setWorkhour(workhour);
 					}
 
 					else {
