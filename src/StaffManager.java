@@ -28,7 +28,7 @@ public class StaffManager {
 				staffs.add(staff);
 				break;
 			}
-		
+
 			else if (kind == 2) 
 			{
 				staff = new NonRegularworker();
@@ -36,17 +36,17 @@ public class StaffManager {
 				staffs.add(staff);
 				break;
 			}
-		
+
 			else 
 			{
 				System.out.println("Select num for Staff Kind 1 or 2");
 			}
 		}
-		
-		
-		
-		
-		
+
+
+
+
+
 
 	}
 

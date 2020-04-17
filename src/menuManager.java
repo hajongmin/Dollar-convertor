@@ -23,7 +23,7 @@ public class menuManager {
 			if (num == 1) {
 				staffmanager.addstaff();
 			}
-			
+
 			else if (num == 2) {
 				staffmanager.deletestaff();
 			}

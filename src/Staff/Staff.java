@@ -20,8 +20,8 @@ public class Staff {
 		this.phonenumber = phonenumber;
 		this.workhour = workhour;
 	}
-	
-	
+
+
 	public StaffKind getKind() {
 		return kind;
 	}
@@ -67,25 +67,25 @@ public class Staff {
 		System.out.print("name : " + name + ", " + "age : " + age + ", " + "phonenumer : " + phonenumber + ", "
 				+ "workhour : " + workhour + "\n\n");
 	}
-	
+
 	public void getUserInput(Scanner input) {
 		System.out.println("***Add the staff*** ");
-		
+
 		System.out.println("Name : ");
 		String name = input.next();
 		this.setName(name);
-		
+
 		System.out.println("age : ");
 		int age = input.nextInt();
 		this.setAge(age);
-		
+
 		System.out.println("Phone number : ");
 		int phonenumber = input.nextInt();
 		this.setPhonenumber(phonenumber);
-		
+
 		System.out.println("working hour : ");
 		int workhour = input.nextInt();
 		this.setWorkhour(workhour);
-		 
+
 	}
 } 
