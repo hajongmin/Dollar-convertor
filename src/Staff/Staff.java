@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Staff {
 	protected StaffKind kind = StaffKind.Regularworker;
-	protected String name;	
+	protected String name;	//protected는 상속에서 주로활용 외부 클래스에서 접근 원하지않음 그러나 상속받는 클래스에는 있도록 하고싶을때 
 	protected int age;
 	protected int phonenumber;
 	protected int workhour; 
@@ -13,8 +13,21 @@ public class Staff {
 	public Staff() {
 
 	}
+	
+	public Staff(StaffKind kind) {
+		this.kind = kind;
+
+	}
 
 	public Staff(String name, int age, int phonenumber, int workhour) {
+		this.name = name;
+		this.age = age;
+		this.phonenumber = phonenumber;
+		this.workhour = workhour;
+	}
+	
+	public Staff(StaffKind kind, String name, int age, int phonenumber, int workhour) {
+		this.kind = kind;
 		this.name = name;
 		this.age = age;
 		this.phonenumber = phonenumber;
@@ -62,9 +75,27 @@ public class Staff {
 		this.workhour = workhour;
 	}
 
-
+	
 	public void printinfo() {
-		System.out.print("name : " + name + ", " + "age : " + age + ", " + "phonenumer : " + phonenumber + ", "
+		String skind = "none";
+		switch(this.kind) {
+		
+		case Regularworker:
+			skind = "Regular";
+			break;
+		
+		case NonRegularworker:
+			skind = "NonRegular";
+			break;
+		
+		case Manager:
+			skind = "Manager";
+			break;
+			
+		default:	
+		}
+		
+		System.out.print("kind: " + skind +"," + " name : " + name + ", " + "age : " + age + ", " + "phonenumer : " + phonenumber + ", "
 				+ "workhour : " + workhour + "\n\n");
 	}
 
