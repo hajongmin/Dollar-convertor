@@ -1,57 +1,39 @@
 package Staff;
 
+ 
+
 import java.util.Scanner;
 
-public class Manager extends Staff {
+ 
+
+public class Manager extends AdultStaff  {
+
 	
+
 	public Manager(StaffKind kind) {
+
 		super(kind);
 
 	}
+
 	
+
 	public void getUserInput(Scanner input) {
+
 		System.out.println("***Add the staff*** ");
 
-		System.out.println("Name : ");
-		String name = input.next();
-		this.setName(name);
-		
-		char answer = 'x';  
-		while (answer != 'y' && answer !='Y' && answer !='n' && answer !='N')
-		{
-			System.out.println("Do you want to know age? (Y/N)");
-			answer = input.next().charAt(0);
-			if(answer == 'y' || answer == 'Y')
-			{
-				System.out.println("age : ");
-				int age = input.nextInt();
-				this.setAge(age); 
-				break;
-			}
+		setStaffName(input); //추가
 
-			else if (answer == 'N' || answer == 'n')
-			{
-				this.setAge(0);      // 문자형 데이터 " " 를 정수로 표현하지 못해 0이 출력되도록 하였습니다.
-				break;
-			}
+		setStaffagewithYN(input); //추가
 
-			else {
+		setStaffPhonenumber(input); // 추가
 
-			}
-		}
-		
-		System.out.println("phone : ");
-		int phonenumber = input.nextInt();
-		this.setPhonenumber(phonenumber);
-		
-		System.out.println("working hour : ");
-		int workhour = input.nextInt();
-		this.setWorkhour(workhour);
-		
-		
-		
-	
-
+		setStaffWorkhour(input); // 추가
 
 	}
-}
+
+	
+
+} //printInfo()의   skind를 정하는 부분을 밖으로 꺼내 skind를 리턴해주는 함수로 만들어넣어주었다  , getuserinput()함수에서  이름을 입력받을 때 이전에 만들어 놓은
+
+    //setStaffName()와 비슷하여 바꿔주었다., 밑에 while문빼고 똑같은 부분을 함수로 처리

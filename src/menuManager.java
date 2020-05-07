@@ -3,45 +3,96 @@ import java.util.Scanner;
 public class menuManager {
 
 	public static void main(String[] args) {
+
 		Scanner input = new Scanner(System.in);
+
 		StaffManager staffmanager = new StaffManager(input);
 
+
+
 		int num = 4;
+
 		while (num != 5) {
 
-			System.out.println(" -- Staff Manegement System  -- ");
-			System.out.println("   What do you want to do? ");
-			System.out.println(" 1. Add Staff ");
-			System.out.println(" 2. Delete Staff ");
-			System.out.println(" 3. Edit Staff ");
-			System.out.println(" 4. view Staffs ");
-			System.out.println(" 5. Exit the program ");
-			System.out.println(" Selcet one number between 1 ~ 5 :");
+
+
+			showMenu();
 
 			num = input.nextInt();
 
-			if (num == 1) {
+
+
+			switch(num) {
+
+
+
+			case 1 :
+
 				staffmanager.addstaff();
-			}
 
-			else if (num == 2) {
+				break;
+
+
+
+			case 2 :
+
 				staffmanager.deletestaff();
-			}
 
-			else if (num == 3) {
+				break;
+
+
+
+			case 3 :
+
 				staffmanager.editstaff();
-			}
 
-			else if (num == 4) {
+				break;
+
+
+
+			case 4 :
+
 				staffmanager.viewstaffs();
-			}
 
-			else {
+				break;
+
+			default :
+
 				continue;
-			}
 
+			}
 		}
+
+
 
 	}
 
-}
+
+
+	public static void showMenu() {
+
+		System.out.println(" -- Staff Manegement System  -- ");
+
+		System.out.println("   What do you want to do? ");
+
+		System.out.println(" 1. Add Staff ");
+
+		System.out.println(" 2. Delete Staff ");
+
+		System.out.println(" 3. Edit Staff ");
+
+		System.out.println(" 4. view Staffs ");
+
+		System.out.println(" 5. Exit the program ");
+
+		System.out.println(" Selcet one number between 1 ~ 5 :");
+
+
+
+	}
+
+
+
+}  //메뉴함수를 만들었고 if문을 switch문으로 바꿈 
+
+ 
