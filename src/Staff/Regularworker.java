@@ -26,13 +26,13 @@ public class Regularworker extends AdultStaff  {
 
 		System.out.println("***Add the staff*** ");
 
-		setStaffName(input);  //추가
+		setStaffName(input);  
 
-		setStaffagewithYN(input); //추가
+		setStaffagewithYN(input); 
 
-		setStaffPhonenumber(input);  //추가 
+		setStaffPhonenumber(input);  
 
-		setStaffWorkhour(input);   //추가
+		setStaffWorkhour(input);   
 
 	}
 
@@ -40,7 +40,7 @@ public class Regularworker extends AdultStaff  {
 
 	public void printinfo() {
 
-		String skind = getKindString(); //추가
+		String skind = getKindString(); 
 
 		System.out.print("kind: " + skind +", " + " name : " + name + ", " + "age : " + age + ", " + "phonenumer : " + phonenumber + ", "  
 

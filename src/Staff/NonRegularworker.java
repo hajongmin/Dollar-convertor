@@ -38,21 +38,21 @@ public class NonRegularworker extends Staff  {
 
  
 
-		setStaffName(input); //추가
+		setStaffName(input); 
 
-		setStaffAge(input);  //추가
+		setStaffAge(input);  
 
-		setStaffPhonenumber(input);  //추가
+		setStaffPhonenumber(input);  
 
-		setStaffparentphonenum(input); //추가
+		setStaffparentphonenum(input); 
 
-		setStaffWorkhour(input);  //추가
+		setStaffWorkhour(input);  
 
 	}
 
 	
 
-	public void setStaffparentphonenum(Scanner input) { //추가
+	public void setStaffparentphonenum(Scanner input) { 
 
 		char answer = 'x';   
 
@@ -102,7 +102,7 @@ public class NonRegularworker extends Staff  {
 
 	public void printinfo() {
 
-		String skind = getKindString(); //추가
+		String skind = getKindString(); 
 
 		System.out.print("kind: " + skind +", " + " name : " + name + ", " + "age : " + age + ", " + "phonenumer : " + phonenumber + ", " +"parent's phonenumer : " + parentphonenumber 
 

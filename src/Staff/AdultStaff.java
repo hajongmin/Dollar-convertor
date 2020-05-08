@@ -6,11 +6,11 @@ import java.util.Scanner;
 
  
 
-public abstract class AdultStaff extends Staff { //추상화
+public abstract class AdultStaff extends Staff { 
 
  
 
-	public AdultStaff(StaffKind kind) { //추가
+	public AdultStaff(StaffKind kind) { 
 
 		super(kind);
 
@@ -20,13 +20,13 @@ public abstract class AdultStaff extends Staff { //추상화
 
 	@Override
 
-	public abstract void getUserInput(Scanner input); //추상화
+	public abstract void getUserInput(Scanner input); 
 
 	
 
 	@Override
 
-	public void printinfo() { //추가
+	public void printinfo() { 
 
 		String skind = getKindString();
 
@@ -38,7 +38,7 @@ public abstract class AdultStaff extends Staff { //추상화
 
  
 
-	public void setStaffagewithYN(Scanner input) { //추가
+	public void setStaffagewithYN(Scanner input) { 
 
 		char answer = 'x';  
 
@@ -54,7 +54,7 @@ public abstract class AdultStaff extends Staff { //추상화
 
 			{
 
-				setStaffAge(input); // 추가
+				setStaffAge(input); 
 
 				break;
 

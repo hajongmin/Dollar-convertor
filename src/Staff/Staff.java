@@ -208,7 +208,7 @@ public abstract class Staff implements StaffInput { //staff라는 객체를 생성하지 
 
 	
 
-	public String getKindString() { //추가
+	public String getKindString() { 
 
 		String skind = "none";
 
