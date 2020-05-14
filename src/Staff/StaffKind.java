@@ -4,6 +4,6 @@ public enum StaffKind {
 	Regularworker,
 	NonRegularworker,
 	Manager, 
-	
+
 
 }
