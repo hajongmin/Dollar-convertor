@@ -16,17 +16,31 @@ import javax.swing.JPanel;
 
  
 
-public class MenuSelection extends JFrame { //JFrame 을 상속받는 MenuSelection 클래스
+import Listener.ButtonAddListener;
+
+import Listener.ButtonViewListener;
+
+ 
+
+public class MenuSelection extends JPanel { //JFrame -> JPanel 변경
 
 	
 
-	public MenuSelection() {
-
-		this.setSize(300,300); //프레임 싸이즈
-
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //'x'를 누르면 프로그램 종료
+	WindowFrame frame;
 
 	
+
+	public MenuSelection(WindowFrame frame) {
+
+		
+
+		this.frame = frame;  //맨처음에 시작되는게 나의 프레임에 넘어온 프레임을 넣어줌
+
+		
+
+		this.setLayout(new BorderLayout()); //기본 디폴트값은 flowLayout인데 거기서 border로 바꿔줌
+
+		
 
 		JPanel panel1 = new JPanel();   
 
@@ -48,6 +62,12 @@ public class MenuSelection extends JFrame { //JFrame 을 상속받는 MenuSelection �
 
 		
 
+		button1.addActionListener(new ButtonAddListener(frame));
+
+		button4.addActionListener(new ButtonViewListener(frame));
+
+		
+
 		panel1.add(label);
 
 		panel2.add(button1);
@@ -62,11 +82,11 @@ public class MenuSelection extends JFrame { //JFrame 을 상속받는 MenuSelection �
 
 		
 
-		this.add(panel1, BorderLayout.NORTH ); 
+		this.add(panel1, BorderLayout.NORTH ); //panel 에 panel은 추가가능
 
 		this.add(panel2, BorderLayout.CENTER);
 
-		this.setVisible(true);
+		
 
 		
 
