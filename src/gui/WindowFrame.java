@@ -12,11 +12,17 @@ import javax.swing.JPanel;
 
  
 
-public class WindowFrame extends JFrame{ //¸ÖÆ¼ÇÁ·¹ÀÓÀ» ÇÏ´Â°ÍÀÌ º°·Î ÁÁÀº°ÍÀÌ ¾Æ´Ï¶ó¼­ ¹Ù²Û°ÅÀÓ
+import Manager.StaffManager;
 
  
 
-	MenuSelection Menuselection; //Ãß°¡
+public class WindowFrame extends JFrame{ //¸ÖÆ¼ÇÁ·¹ÀÓÀ» ÇÏ´Â°ÍÀÌ º°·Î ÁÁÀº°ÍÀÌ ¾Æ´Ï¶ó¼­ ¹Ù²Û°ÅÀÓ
+
+	
+
+	StaffManager staffmanager; //Ãß°¡
+
+	MenuSelection Menuselection;
 
 	StaffAdder staffadder;
 
@@ -24,15 +30,17 @@ public class WindowFrame extends JFrame{ //¸ÖÆ¼ÇÁ·¹ÀÓÀ» ÇÏ´Â°ÍÀÌ º°·Î ÁÁÀº°ÍÀÌ ¾
 
 	
 
-	public WindowFrame() {
+	public WindowFrame(StaffManager staffmanager) {
 
-		
+		this.staffmanager = staffmanager; //Ãß°¡
 
-		this.Menuselection = new MenuSelection(this); //Ãß°¡
+		this.Menuselection = new MenuSelection(this);
 
 		this.staffadder = new StaffAdder(this);
 
-		this.staffviewer = new StaffViewer(this);
+		this.staffviewer = new StaffViewer(this, this.staffmanager);
+
+		
 
 		
 
@@ -40,15 +48,7 @@ public class WindowFrame extends JFrame{ //¸ÖÆ¼ÇÁ·¹ÀÓÀ» ÇÏ´Â°ÍÀÌ º°·Î ÁÁÀº°ÍÀÌ ¾
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 
-		
-
-	
-
 		this.setupPanel(Menuselection);	
-
-//		this.setupPanel(staffadder);		
-
-//		this.setupPanel(staffviewer);
 
 		
 
@@ -58,11 +58,11 @@ public class WindowFrame extends JFrame{ //¸ÖÆ¼ÇÁ·¹ÀÓÀ» ÇÏ´Â°ÍÀÌ º°·Î ÁÁÀº°ÍÀÌ ¾
 
 	
 
-	public void setupPanel(JPanel panel) { //Ãß°¡
+	public void setupPanel(JPanel panel) { 
 
-		this.getContentPane().removeAll();
+		this.getContentPane().removeAll(); 
 
-		this.getContentPane().add(panel);
+		this.getContentPane().add(panel); 
 
 		this.revalidate();
 
@@ -74,7 +74,7 @@ public class WindowFrame extends JFrame{ //¸ÖÆ¼ÇÁ·¹ÀÓÀ» ÇÏ´Â°ÍÀÌ º°·Î ÁÁÀº°ÍÀÌ ¾
 
 	
 
-	public MenuSelection getMenuselection() { //Ãß°¡
+	public MenuSelection getMenuselection() { 
 
 		return Menuselection;
 

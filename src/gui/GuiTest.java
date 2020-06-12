@@ -10,7 +10,7 @@ public class GuiTest {
 
 		
 
-		WindowFrame frame = new WindowFrame(); //추가
+		//WindowFrame frame = new WindowFrame(); //추가
 
 		
 
